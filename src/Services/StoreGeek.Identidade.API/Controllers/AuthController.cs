@@ -38,7 +38,7 @@ namespace StoreGeek.Identidade.API.Controllers
                 await _signInManager.SignInAsync(user, false);
                 return Ok();
             }
-            return BadRequest();
+            return BadRequest(result.Errors.ToString());
         }
 
         [HttpPost("autenticar")]
