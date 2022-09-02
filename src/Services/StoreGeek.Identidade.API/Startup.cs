@@ -7,7 +7,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using StoreGeek.Identidade.API.Data;
-using StoreGeek.Identidade.API.Models;
 using System;
 
 namespace StoreGeek.Identidade.API
