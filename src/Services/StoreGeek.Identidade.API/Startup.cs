@@ -8,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using StoreGeek.Identidade.API.Data;
+using System;
 using StoreGeek.Identidade.API.Extensions;
 using System.Text;
 
