@@ -11,6 +11,7 @@ using StoreGeek.Identidade.API.Data;
 using System;
 using StoreGeek.Identidade.API.Extensions;
 using System.Text;
+using Microsoft.OpenApi.Models;
 
 namespace StoreGeek.Identidade.API
 {
@@ -28,7 +29,7 @@ namespace StoreGeek.Identidade.API
             services.AddDbContext<ApplicationDbContext>(o => o.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddDefaultIdentity<IdentityUser>()
-                    .AddRoles<IdentityUser>()
+                    .AddRoles<IdentityRole>()
                     .AddEntityFrameworkStores<ApplicationDbContext>()
                     .AddDefaultTokenProviders();
 
@@ -62,10 +63,30 @@ namespace StoreGeek.Identidade.API
            });
 
             services.AddControllers();
+
+            services.AddSwaggerGen(o =>
+            {
+                o.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Version = "v1",
+                    Title = "StoreGeek",
+                    Description = "API de Registro e Login de Usuários",
+                    Contact = new OpenApiContact { Name = "Fabricio Silva", Email = "fsilvarocha@gmail.com" },
+                    License = new OpenApiLicense { Name = "MIT", Url = new Uri("https://opensource.org/licenses/MIT") }
+                });
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(o =>
+            {
+                o.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
+            });
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
