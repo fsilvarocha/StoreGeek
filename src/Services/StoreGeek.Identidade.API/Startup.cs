@@ -7,9 +7,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 using StoreGeek.Identidade.API.Data;
 using System;
 using StoreGeek.Identidade.API.Extensions;
+using System;
 using System.Text;
 using Microsoft.OpenApi.Models;
 
@@ -70,7 +72,7 @@ namespace StoreGeek.Identidade.API
                 {
                     Version = "v1",
                     Title = "StoreGeek",
-                    Description = "API de Registro e Login de Usu·rios",
+                    Description = "API de Registro e Login de Usu√°rios",
                     Contact = new OpenApiContact { Name = "Fabricio Silva", Email = "fsilvarocha@gmail.com" },
                     License = new OpenApiLicense { Name = "MIT", Url = new Uri("https://opensource.org/licenses/MIT") }
                 });
